@@ -1,20 +1,21 @@
 import 'dart:developer';
 
 import 'package:device_calendar/device_calendar.dart' as cal;
-import 'package:event_app/bloc/event_details_event.dart';
-import 'package:event_app/bloc/event_state.dart';
-import 'package:event_app/controller/event_controller.dart';
+import 'package:device_calendar_example/bloc/event_details_event.dart';
+import 'package:device_calendar_example/bloc/event_state.dart';
+import 'package:device_calendar_example/controller/event_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CalendarBloc extends Bloc<EventDetailsEvent, EventDetailsState> {
-  final BuildContext context;
+class CalendarBloc extends Bloc<EventDetailsEvent, CalendarState> {
+  static CalendarBloc bloc = CalendarBloc();
+
   late cal.DeviceCalendarPlugin _deviceCalendarPlugin;
   bool _requestSent = false;
   String kErrorStringGeneric = 'Oops Something went wrong';
-  CalendarBloc({required this.context}) : super(EventDetailsInitial()) {
+  CalendarBloc() : super(EventDetailsInitial()) {
     _deviceCalendarPlugin = cal.DeviceCalendarPlugin();
-    on<CreateCalendarEvent>((CreateCalendarEvent event, Emitter<EventDetailsState> emit) async {
+    on<CreateCalendarEvent>((CreateCalendarEvent event, Emitter<CalendarState> emit) async {
       try {
         cal.Result<bool> permissionResult = await _deviceCalendarPlugin.requestPermissions();
         if (!_requestSent) {
@@ -83,7 +84,7 @@ class CalendarBloc extends Bloc<EventDetailsEvent, EventDetailsState> {
         log('Error', error: error);
       }
     });
-    on<CheckEventExists>((CheckEventExists event, Emitter<EventDetailsState> emit) async {
+    on<CheckEventExists>((CheckEventExists event, Emitter<CalendarState> emit) async {
       try {
         cal.Result<bool> permissionResult = await _deviceCalendarPlugin.requestPermissions();
         if (permissionResult.isSuccess) {

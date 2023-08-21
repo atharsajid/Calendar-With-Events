@@ -1,4 +1,6 @@
-import 'package:event_app/controller/local_storage.dart';
+
+
+import 'package:device_calendar_example/controller/local_storage.dart';
 
 class Event {
   int get id => map['id'] as int? ?? 0;

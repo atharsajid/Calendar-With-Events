@@ -1,4 +1,4 @@
-import 'package:event_app/model/event.dart';
+import 'package:device_calendar_example/model/event.dart';
 import 'package:flutter/material.dart';
 
 abstract class EventDetailsEvent {

@@ -1,14 +1,14 @@
 
 
-abstract class EventDetailsState {
-  const EventDetailsState();
+abstract class CalendarState {
+  const CalendarState();
 }
 
-class EventDetailsInitial extends EventDetailsState {}
+class EventDetailsInitial extends CalendarState {}
 
-class EventDetailsLoading extends EventDetailsState {}
+class EventDetailsLoading extends CalendarState {}
 
-class EventDetailsLoaded extends EventDetailsState {
+class EventDetailsLoaded extends CalendarState {
   final bool eventExists;
   final bool showLoadingIndicator;
   EventDetailsLoaded({
@@ -17,7 +17,7 @@ class EventDetailsLoaded extends EventDetailsState {
   });
 }
 
-class EventDetailsError extends EventDetailsState {
+class EventDetailsError extends CalendarState {
   final String message;
   final bool isError;
 

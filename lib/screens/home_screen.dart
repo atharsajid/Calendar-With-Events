@@ -1,9 +1,7 @@
-import 'package:event_app/screens/event_form.dart';
+import 'package:device_calendar_example/screens/event_form.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +12,7 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Row(children: [],),
           ElevatedButton(
               onPressed: () {
                 Navigator.push(

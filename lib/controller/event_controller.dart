@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:device_calendar/device_calendar.dart' as cal;
-import 'package:event_app/controller/helper_functions.dart';
+import 'package:device_calendar_example/controller/helper_functions.dart';
 import 'package:intl/intl.dart';
 import '../model/event.dart';
 
